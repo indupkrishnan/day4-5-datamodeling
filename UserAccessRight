@@ -1,0 +1,35 @@
+INSERT_UPDATE UserGroup; UID[unique = true]   ; locname[lang = en]     ; backOfficeLoginDisabled;
+                       ; backofficeadmingroup ; Backoffice admin group ; false
+
+INSERT_UPDATE UserGroup; UID[unique = true]; groups(uid)[mode = append]
+                       ; myadmingroup        ; backofficeadmingroup
+
+
+
+$START_USERRIGHTS; ; ; ; ; ; ; ; ;
+Type      ; UID                         ; MemberOfGroups ; Password ; Target                      ; read ; change ; create ; remove ; change_perm
+UserGroup ; myadmingroup ;                ;          ;                             ;      ;        ;        ;        ;
+
+# Access Rights for Workflow Users ;;;;;;;;;
+          ;                             ;                ;          ; ItemSyncTimestamp           ; +    ;        ;        ;
+          ;                             ;                ;          ; SyncItemJob                 ; +    ;        ;        ;
+          ;                             ;                ;          ; Type                        ; +    ;        ;        ;
+          ;                             ;                ;          ; Product                     ; +    ; +      ; +      ; +      ;   ;
+          ;                             ;                ;          ; Category                    ; +    ; +      ; +      ; +      ;   ;
+          ;                             ;                ;          ; VariantType                 ; +    ; +      ; +      ; +      ;   ;
+          ;                             ;                ;          ; Catalog                     ; +    ;        ;        ;
+          ;                             ;                ;          ; CatalogVersion              ; +    ; +      ; +      ; +      ;   ;
+          ;                             ;                ;          ; ClassificationAttributeUnit ; +    ;        ;        ;
+          ;                             ;                ;          ; Media                       ; +    ; +      ; +      ; +      ;   ;
+          ;                             ;                ;          ; MediaContainer              ; +    ; +      ; +      ; +      ;   ;
+          ;                             ;                ;          ; MediaFormat                 ; +    ; +      ; +      ;        ;   ;
+          ;                             ;                ;          ; MediaFolder                 ; +    ; +      ; +      ; +      ;   ;
+          
+$END_USERRIGHTS; ; ; ; ;
+
+
+
+# Create user
+
+INSERT_UPDATE Employee;UID[unique=true];password;groups(uid)[mode=append]
+;myadmin1;test1212;"myadmingroup"

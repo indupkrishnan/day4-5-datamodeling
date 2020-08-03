@@ -1,0 +1,6 @@
+
+
+# Import classification features
+INSERT_UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];type(code);localized[default=true];multiValue[default=false];fieldValueProvider
+;electronicsProductType;alias ;string;true;false;;
+
